@@ -15,16 +15,19 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
 # Setting working directory
-  setwd("D:/R Folder/data")
+  
+    setwd("D:/R Folder/data")
  
 # Download the file and store in directory
-  Storing data into working directory for further manipulation
-  temp <- "D:/R Folder/data/data_set.zip"
-  download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",temp)
+  
+    Storing data into working directory for further manipulation
+    temp <- "D:/R Folder/data/data_set.zip"
+    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",temp)
 
 # Unzip the file
-  unzip the file using "unzip" function in order to extract all the file which are compressed in zip folder
-  file_unzip<- unzip(temp)
+  
+    unzip the file using "unzip" function in order to extract all the file which are compressed in zip folder
+    file_unzip<- unzip(temp)
 
 # Get the Data in R : Getting list of unziped file from "UCHI HAR dataset"
  Checking list of files in "UCHI HAR dataset folder"
