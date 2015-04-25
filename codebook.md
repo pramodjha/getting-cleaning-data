@@ -67,3 +67,77 @@ Getting list of unziped file from "UCHI HAR dataset"
  Gyro = gyroscopic measurements
  Jerk = sudden movement acceleration
  Mag = magnitude of movement
+ 
+ After replacing code to variable we get
+ 
+ #Before 	                   # After
+ subject                    	 subject                                       
+ activityName               	 activityName                                  
+ activityNum                	 activityNum                                   
+ tBodyAcc-mean()-X          	 timeBodyAccelerometer-MEAN()-X                
+ tBodyAcc-mean()-Y          	 timeBodyAccelerometer-MEAN()-Y                
+ tBodyAcc-mean()-Z          	 timeBodyAccelerometer-MEAN()-Z                
+ tBodyAcc-std()-X           	 timeBodyAccelerometer-SD()-X                  
+ tBodyAcc-std()-Y           	 timeBodyAccelerometer-SD()-Y                  
+ tBodyAcc-std()-Z           	 timeBodyAccelerometer-SD()-Z                  
+ tGravityAcc-mean()-X       	 timeGravityAccelerometer-MEAN()-X             
+ tGravityAcc-mean()-Y       	 timeGravityAccelerometer-MEAN()-Y             
+ tGravityAcc-mean()-Z       	 timeGravityAccelerometer-MEAN()-Z             
+ tGravityAcc-std()-X        	 timeGravityAccelerometer-SD()-X               
+ tGravityAcc-std()-Y        	 timeGravityAccelerometer-SD()-Y               
+ tGravityAcc-std()-Z        	 timeGravityAccelerometer-SD()-Z               
+ tBodyAccJerk-mean()-X      	 timeBodyAccelerometerJerk-MEAN()-X            
+ tBodyAccJerk-mean()-Y      	 timeBodyAccelerometerJerk-MEAN()-Y            
+ tBodyAccJerk-mean()-Z      	 timeBodyAccelerometerJerk-MEAN()-Z            
+ tBodyAccJerk-std()-X       	 timeBodyAccelerometerJerk-SD()-X              
+ tBodyAccJerk-std()-Y       	 timeBodyAccelerometerJerk-SD()-Y              
+ tBodyAccJerk-std()-Z       	 timeBodyAccelerometerJerk-SD()-Z              
+ tBodyGyro-mean()-X         	 timeBodyGyroscope-MEAN()-X                    
+ tBodyGyro-mean()-Y         	 timeBodyGyroscope-MEAN()-Y                    
+ tBodyGyro-mean()-Z         	 timeBodyGyroscope-MEAN()-Z                    
+ tBodyGyro-std()-X          	 timeBodyGyroscope-SD()-X                      
+ tBodyGyro-std()-Y          	 timeBodyGyroscope-SD()-Y                      
+ tBodyGyro-std()-Z          	 timeBodyGyroscope-SD()-Z                      
+ tBodyGyroJerk-mean()-X     	 timeBodyGyroscopeJerk-MEAN()-X                
+ tBodyGyroJerk-mean()-Y     	 timeBodyGyroscopeJerk-MEAN()-Y                
+ tBodyGyroJerk-mean()-Z     	 timeBodyGyroscopeJerk-MEAN()-Z                
+ tBodyGyroJerk-std()-X      	 timeBodyGyroscopeJerk-SD()-X                  
+ tBodyGyroJerk-std()-Y      	 timeBodyGyroscopeJerk-SD()-Y                  
+ tBodyGyroJerk-std()-Z      	 timeBodyGyroscopeJerk-SD()-Z                  
+ tBodyAccMag-mean()         	 timeBodyAccelerometerMagnitude-MEAN()         
+ tBodyAccMag-std()          	 timeBodyAccelerometerMagnitude-SD()           
+ tGravityAccMag-mean()      	 timeGravityAccelerometerMagnitude-MEAN()      
+ tGravityAccMag-std()       	 timeGravityAccelerometerMagnitude-SD()        
+ tBodyAccJerkMag-mean()     	 timeBodyAccelerometerJerkMagnitude-MEAN()     
+ tBodyAccJerkMag-std()      	 timeBodyAccelerometerJerkMagnitude-SD()       
+ tBodyGyroMag-mean()        	 timeBodyGyroscopeMagnitude-MEAN()             
+ tBodyGyroMag-std()         	 timeBodyGyroscopeMagnitude-SD()               
+ tBodyGyroJerkMag-mean()    	 timeBodyGyroscopeJerkMagnitude-MEAN()         
+ tBodyGyroJerkMag-std()     	 timeBodyGyroscopeJerkMagnitude-SD()           
+ fBodyAcc-mean()-X          	 frequencyBodyAccelerometer-MEAN()-X           
+ fBodyAcc-mean()-Y          	 frequencyBodyAccelerometer-MEAN()-Y           
+ fBodyAcc-mean()-Z          	 frequencyBodyAccelerometer-MEAN()-Z           
+ fBodyAcc-std()-X           	 frequencyBodyAccelerometer-SD()-X             
+ fBodyAcc-std()-Y           	 frequencyBodyAccelerometer-SD()-Y             
+ fBodyAcc-std()-Z           	 frequencyBodyAccelerometer-SD()-Z             
+ fBodyAccJerk-mean()-X      	 frequencyBodyAccelerometerJerk-MEAN()-X       
+ fBodyAccJerk-mean()-Y      	 frequencyBodyAccelerometerJerk-MEAN()-Y       
+ fBodyAccJerk-mean()-Z      	 frequencyBodyAccelerometerJerk-MEAN()-Z       
+ fBodyAccJerk-std()-X       	 frequencyBodyAccelerometerJerk-SD()-X         
+ fBodyAccJerk-std()-Y       	 frequencyBodyAccelerometerJerk-SD()-Y         
+ fBodyAccJerk-std()-Z       	 frequencyBodyAccelerometerJerk-SD()-Z         
+ fBodyGyro-mean()-X         	 frequencyBodyGyroscope-MEAN()-X               
+ fBodyGyro-mean()-Y         	 frequencyBodyGyroscope-MEAN()-Y               
+ fBodyGyro-mean()-Z         	 frequencyBodyGyroscope-MEAN()-Z               
+ fBodyGyro-std()-X          	 frequencyBodyGyroscope-SD()-X                 
+ fBodyGyro-std()-Y          	 frequencyBodyGyroscope-SD()-Y                 
+ fBodyGyro-std()-Z          	 frequencyBodyGyroscope-SD()-Z                 
+ fBodyAccMag-mean()         	 frequencyBodyAccelerometerMagnitude-MEAN()    
+ fBodyAccMag-std()          	 frequencyBodyAccelerometerMagnitude-SD()      
+ fBodyBodyAccJerkMag-mean() 	 frequencyBodyAccelerometerJerkMagnitude-MEAN()
+ fBodyBodyAccJerkMag-std()  	 frequencyBodyAccelerometerJerkMagnitude-SD()  
+ fBodyBodyGyroMag-mean()    	 frequencyBodyGyroscopeMagnitude-MEAN()        
+ fBodyBodyGyroMag-std()     	 frequencyBodyGyroscopeMagnitude-SD()          
+ fBodyBodyGyroJerkMag-mean()	 frequencyBodyGyroscopeJerkMagnitude-MEAN()    
+ fBodyBodyGyroJerkMag-std() 	 frequencyBodyGyroscopeJerkMagnitude-SD()      
+
