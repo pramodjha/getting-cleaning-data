@@ -18,41 +18,50 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-Attribute Information
+# Get the Data in R
+  Getting data from given url by using "download.file" function
 
-For each record in the dataset it is provided:
+# download the file and store in directory
+  Storing data into working directory for further manipulation
+  
+# Unzip the file
+  unzip the file using "unzip" function in order to extract all the file which are compressed in zip folder
+  
+# Getting list of unziped file from "UCHI HAR dataset"
+  Checking list of files in "UCHI HAR dataset folder"
+  
+# Reading data from files into variable
+  Reading following files by storing into variable
+    features.txt
+    activity_labels.txt
+    subject_train.txt
+    x_train.txt
+    y_train.txt
+    subject_test.txt
+    x_test.txt
+    y_test.txt
 
-Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-Triaxial Angular velocity from the gyroscope.
-A 561-feature vector with time and frequency domain variables.
-Its activity label.
-An identifier of the subject who carried out the experiment.
-Section 1. Merge the training and the test sets to create one data set.
-
-After setting the source directory for the files, read into tables the data located in
-
-features.txt
-activity_labels.txt
-subject_train.txt
-x_train.txt
-y_train.txt
-subject_test.txt
-x_test.txt
-y_test.txt
-Assign column names and merge to create one data set.
-
-Section 2. Extract only the measurements on the mean and standard deviation for each measurement.
-
-Create a logcal vector that contains TRUE values for the ID, mean and stdev columns and FALSE values for the others. Subset this data to keep only the necessary columns.
-
-Section 3. Use descriptive activity names to name the activities in the data set
-
-Merge data subset with the activityType table to cinlude the descriptive activity names
-
-Section 4. Appropriately label the data set with descriptive activity names.
-
-Use gsub function for pattern replacement to clean up the data labels.
-
-Section 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject.
-
-Per the project instructions, we need to produce only a data set with the average of each veriable for each activity and subject
+# binding row by using rbind 
+  By using rbind row of subject_test.txt & subject_train.txt are binded and table created called "data_subject"
+  similarly row of y_test.txt & y_train.txt are binded into one table called "data_activity"
+  and row of  X_test.txt & X_train.txt are binded and formed tabled called "data_feature"
+  
+  by binding row three tables are created 1) "data_subject" 2) "data_activity" 3) "data_feature"
+  
+# set_variable
+  Setting header for variables by uisng "names" function
+  
+# Combine Column by using cbind
+  Column for each table created above are combine by using function called "cbind"
+  
+# Subset Name of Features by measurements on the mean and standard deviation
+  As we required only column with mean and stadard deviation so we created subset of data with same specification
+  
+# Subset the data frame Data by seleted names of Features
+  
+  
+# Read descriptive activity names from “activity_labels.txt
+  Assigning  lables from activity labels.txt files
+  
+# Appropriately labels the data set with descriptive variable names
+  As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels are assinged to it.
