@@ -27,19 +27,19 @@ The same holds for the training set.
 About the script and the tidy dataset
 
 I created a script called run_analysis.R which perform following steps to get output
-    Setup working directory
-    Download the file and store in directory
-    Unzip the file
-    Get the Data in R : Getting list of unziped file from "UCHI HAR dataset"
-    Reading data from files into variable
-    Binding row by using rbind 
-    Set_variable:
-    Combine Column by using cbind
-    Subset Name of Features by measurements on the mean and standard deviation
-    Subset the data frame Data by seleted names of Features
-    Read descriptive activity names from activity_labels.txt
-    Appropriately labels the data set with descriptive variable names
-    In this part,a second, independent tidy data set will be created with the average of each variable for each activity and each subject
+   Step01] Setup working directory
+   Step02] Download the file and store in directory
+   Step03] Unzip the file
+   Step04] Get the Data in R : Getting list of unziped file from "UCHI HAR dataset"
+   Step05] Reading data from files into variable
+   Step06] Binding row by using rbind 
+   Step07] Set_variable:
+   Step08] Combine Column by using cbind
+   Step09] Subset Name of Features by measurements on the mean and standard deviation
+   Step10] Subset the data frame Data by seleted names of Features
+   Step11] Read descriptive activity names from activity_labels.txt
+   Step12] Appropriately labels the data set with descriptive variable names
+   Step13] In this part,a second, independent tidy data set will be created with the average of each variable for each activity and each subject
 
 so, the code starts from setting up working directory and ending with "tidydata" output
 
