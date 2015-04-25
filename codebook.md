@@ -74,14 +74,14 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
   Setting header for variables by uisng "names" function
    
-   names(data_subject)<-c("subject")
-   
-   names(data_activity)<-c("activity")
-   
-   dataFeaturesNames <- read.table(file.path(file_rf, "features.txt"),head=FALSE)
-   
-   names(data_feature)<- dataFeaturesNames$V2  
- 
+       names(data_subject)<-c("subject")
+       
+       names(data_activity)<-c("activity")
+       
+       dataFeaturesNames <- read.table(file.path(file_rf, "features.txt"),head=FALSE)
+       
+       names(data_feature)<- dataFeaturesNames$V2  
+     
 # Combine Column by using cbind
   
   Column for each table created above are combine by using function called "cbind"
