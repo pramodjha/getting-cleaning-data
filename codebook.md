@@ -70,7 +70,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
   by binding row three tables are created 1) "data_subject" 2) "data_activity" 3) "data_feature"
   
-# Set_variable
+# Set variable
 
   Setting header for variables by uisng "names" function
    
@@ -92,7 +92,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
      
 # Subset Name of Features by measurements on the mean and standard deviation
  
-  As we required only column with mean and stadard deviation so we created subset of data with same specification
+  As we required only column with mean and standard deviation so we created subset of data with same specification
  
         sub_dataFeaturesNames<-dataFeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", dataFeaturesNames$V2)]
         
