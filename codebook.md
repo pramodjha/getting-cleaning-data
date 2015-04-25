@@ -86,27 +86,26 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
   
   Column for each table created above are combine by using function called "cbind"
   
+      dataCombine <- cbind(data_subject, data_activity)
+      
+      all_data<- cbind(data_feature, dataCombine)
+     
 # Subset Name of Features by measurements on the mean and standard deviation
-  
+ 
   As we required only column with mean and stadard deviation so we created subset of data with same specification
  
-  dataCombine <- cbind(data_subject, data_activity)
-  all_data<- cbind(data_feature, dataCombine)
- 
-# Subset Name of Features by measurements on the mean and standard deviation
-  
-  sub_dataFeaturesNames<-dataFeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", dataFeaturesNames$V2)]
-  
+        sub_dataFeaturesNames<-dataFeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", dataFeaturesNames$V2)]
+        
 # Subset the data frame Data by seleted names of Features
  
-   selectedNames<-c(as.character(sub_dataFeaturesNames), "subject", "activity" )
-   all_data<-subset(all_data,select=selectedNames)
-    
+       selectedNames<-c(as.character(sub_dataFeaturesNames), "subject", "activity" )
+       all_data<-subset(all_data,select=selectedNames)
+        
 # Read descriptive activity names from “activity_labels.txt
   
-    Assigning  lables from activity labels.txt files
-    activityLabels <- read.table(file.path(file_rf, "activity_labels.txt"),header = FALSE)
-    
+        Assigning  lables from activity labels.txt files
+        activityLabels <- read.table(file.path(file_rf, "activity_labels.txt"),header = FALSE)
+        
 # Appropriately labels the data set with descriptive variable names
  
    As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels     are assinged to it.
