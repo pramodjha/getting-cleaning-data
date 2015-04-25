@@ -61,3 +61,9 @@ Getting list of unziped file from "UCHI HAR dataset"
   
 # Appropriately labels the data set with descriptive variable names
   As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels are assinged to it.
+ Body = related to body movement.
+ Gravity = acceleration of gravity
+ Acc = accelerometer measurement
+ Gyro = gyroscopic measurements
+ Jerk = sudden movement acceleration
+ Mag = magnitude of movement
