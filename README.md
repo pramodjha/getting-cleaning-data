@@ -29,6 +29,6 @@ Good luck!
 # Subset Name of Features by measurements on the mean and standard deviation
 # Subset the data frame Data by seleted names of Features
 # Read descriptive activity names from “activity_labels.txt
-# Appropriately labels the data set with descriptive variable names
+# Appropriately labels the data set with descriptive variable names.
 
 	
