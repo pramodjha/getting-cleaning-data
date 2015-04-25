@@ -57,9 +57,9 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
   similarly row of y_test.txt & y_train.txt are binded into one table called "data_activity"
   and row of  X_test.txt & X_train.txt are binded and formed tabled called "data_feature"
  
-    data_subject<- rbind(all_data_activity_train_subject,data_activity_test_subject)
-    data_activity<- rbind(all_data_activity_train_Y,data_activity_test_Y)
-    data_feature<- rbind(all_data_feature_train_X, data_feature_test_X)
+    data_subject<- rbind(data_activity_train_subject,data_activity_test_subject)
+    data_activity<- rbind(data_activity_train_Y,data_activity_test_Y)
+    data_feature<- rbind(data_feature_train_X, data_feature_test_X)
 
   by binding row three tables are created 1) "data_subject" 2) "data_activity" 3) "data_feature"
   
