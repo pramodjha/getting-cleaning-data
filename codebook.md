@@ -14,10 +14,10 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-# setting working directory
+# Setting working directory
   setwd("D:/R Folder/data")
  
-# download the file and store in directory
+# Download the file and store in directory
   Storing data into working directory for further manipulation
   temp <- "D:/R Folder/data/data_set.zip"
   download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",temp)
@@ -42,16 +42,16 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
     x_test.txt
     y_test.txt
  
-data_activity_test_Y<- read.table("./UCI HAR dataset/test/y_test.txt")
-data_activity_train_Y<- read.table("./UCI HAR dataset/train/y_train.txt")
+  data_activity_test_Y<- read.table("./UCI HAR dataset/test/y_test.txt")
+  data_activity_train_Y<- read.table("./UCI HAR dataset/train/y_train.txt")
 
-data_feature_test_X<- read.table("D:/R Folder/data/UCI HAR dataset/test/X_test.txt")
-data_feature_train_X<- read.table("D:/R Folder/data/UCI HAR dataset/train/X_train.txt")
+  data_feature_test_X<- read.table("D:/R Folder/data/UCI HAR dataset/test/X_test.txt")
+  data_feature_train_X<- read.table("D:/R Folder/data/UCI HAR dataset/train/X_train.txt")
+  
+  data_activity_test_subject<- read.table("D:/R Folder/data/UCI HAR dataset/test/subject_test.txt")
+  data_activity_train_subject<- read.table("./UCI HAR dataset/train/subject_train.txt")
 
-data_activity_test_subject<- read.table("D:/R Folder/data/UCI HAR dataset/test/subject_test.txt")
-data_activity_train_subject<- read.table("./UCI HAR dataset/train/subject_train.txt")
-
-# binding row by using rbind 
+# Binding row by using rbind 
  
   By using rbind row of subject_test.txt & subject_train.txt are binded and table created called "data_subject"
   similarly row of y_test.txt & y_train.txt are binded into one table called "data_activity"
@@ -63,7 +63,7 @@ data_activity_train_subject<- read.table("./UCI HAR dataset/train/subject_train.
 
   by binding row three tables are created 1) "data_subject" 2) "data_activity" 3) "data_feature"
   
-# set_variable
+# Set_variable
   Setting header for variables by uisng "names" function
  
    names(data_subject)<-c("subject")
@@ -92,7 +92,7 @@ data_activity_train_subject<- read.table("./UCI HAR dataset/train/subject_train.
   activityLabels <- read.table(file.path(file_rf, "activity_labels.txt"),header = FALSE)
   
 # Appropriately labels the data set with descriptive variable names
- As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels    are assinged to it.
+ As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels     are assinged to it.
    Body = related to body movement.
    Gravity = acceleration of gravity
    Acc = accelerometer measurement
