@@ -27,7 +27,7 @@ Good luck!
 # set_variable
 # Combine Column by using cbind
 # Subset Name of Features by measurements on the mean and standard deviation
-# Subset the data frame Data by seleted names of Features
+# Subset the data frame Data by seleted names of Features.
 # Read descriptive activity names from “activity_labels.txt
 # Appropriately labels the data set with descriptive variable names.
 
