@@ -32,10 +32,9 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 # Get the Data in R : Getting list of unziped file from UCHI HAR dataset
  
    Checking list of files in UCHI HAR dataset folder
-   
-   file_rf<- file.path("D:/R Folder/data","UCI HAR dataset")
-   files<- list.files(file_rf,recursive = TRUE)
-   
+         file_rf<- file.path("D:/R Folder/data","UCI HAR dataset")
+         files<- list.files(file_rf,recursive = TRUE)
+         
 # Reading data from files into variable
 
     Reading following files by storing into variable
