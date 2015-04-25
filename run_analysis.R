@@ -2,9 +2,9 @@
   #Get the Data in R
   #Step 1: download the file and store in directory
   
-  setwd("D:/R Folder/all_data")
+  setwd("D:/R Folder/data")
   temp <- "D:/R Folder/data/data_set.zip"
-  download.file("https://d396qusza40orc.cloudfront.net/getall_data%2Fprojectfiles%2FUCI%20HAR%20all_dataset.zip",temp)
+  download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",temp)
   
   #Unzip the file
   
