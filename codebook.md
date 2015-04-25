@@ -30,29 +30,31 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
     file_unzip<- unzip(temp)
 
 # Get the Data in R : Getting list of unziped file from "UCHI HAR dataset"
- Checking list of files in "UCHI HAR dataset folder"
- file_rf<- file.path("D:/R Folder/data","UCI HAR dataset")
- files<- list.files(file_rf,recursive = TRUE)
  
+   Checking list of files in "UCHI HAR dataset folder"
+   file_rf<- file.path("D:/R Folder/data","UCI HAR dataset")
+   files<- list.files(file_rf,recursive = TRUE)
+   
 # Reading data from files into variable
-  Reading following files by storing into variable
-    features.txt
-    activity_labels.txt
-    subject_train.txt
-    x_train.txt
-    y_train.txt
-    subject_test.txt
-    x_test.txt
-    y_test.txt
- 
-  data_activity_test_Y<- read.table("./UCI HAR dataset/test/y_test.txt")
-  data_activity_train_Y<- read.table("./UCI HAR dataset/train/y_train.txt")
 
-  data_feature_test_X<- read.table("D:/R Folder/data/UCI HAR dataset/test/X_test.txt")
-  data_feature_train_X<- read.table("D:/R Folder/data/UCI HAR dataset/train/X_train.txt")
-  
-  data_activity_test_subject<- read.table("D:/R Folder/data/UCI HAR dataset/test/subject_test.txt")
-  data_activity_train_subject<- read.table("./UCI HAR dataset/train/subject_train.txt")
+    Reading following files by storing into variable
+      features.txt
+      activity_labels.txt
+      subject_train.txt
+      x_train.txt
+      y_train.txt
+      subject_test.txt
+      x_test.txt
+      y_test.txt
+ 
+      data_activity_test_Y<- read.table("./UCI HAR dataset/test/y_test.txt")
+      data_activity_train_Y<- read.table("./UCI HAR dataset/train/y_train.txt")
+
+      data_feature_test_X<- read.table("D:/R Folder/data/UCI HAR dataset/test/X_test.txt")
+      data_feature_train_X<- read.table("D:/R Folder/data/UCI HAR dataset/train/X_train.txt")
+      
+      data_activity_test_subject<- read.table("D:/R Folder/data/UCI HAR dataset/test/subject_test.txt")
+      data_activity_train_subject<- read.table("./UCI HAR dataset/train/subject_train.txt")
 
 # Binding row by using rbind 
  
@@ -67,191 +69,197 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
   by binding row three tables are created 1) "data_subject" 2) "data_activity" 3) "data_feature"
   
 # Set_variable
+
   Setting header for variables by uisng "names" function
- 
    names(data_subject)<-c("subject")
    names(data_activity)<-c("activity")
    dataFeaturesNames <- read.table(file.path(file_rf, "features.txt"),head=FALSE)
    names(data_feature)<- dataFeaturesNames$V2  
  
 # Combine Column by using cbind
+  
   Column for each table created above are combine by using function called "cbind"
   
 # Subset Name of Features by measurements on the mean and standard deviation
+  
   As we required only column with mean and stadard deviation so we created subset of data with same specification
  
   dataCombine <- cbind(data_subject, data_activity)
   all_data<- cbind(data_feature, dataCombine)
  
 # Subset Name of Features by measurements on the mean and standard deviation
+  
   sub_dataFeaturesNames<-dataFeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", dataFeaturesNames$V2)]
   
 # Subset the data frame Data by seleted names of Features
- selectedNames<-c(as.character(sub_dataFeaturesNames), "subject", "activity" )
- all_data<-subset(all_data,select=selectedNames)
-  
+ 
+   selectedNames<-c(as.character(sub_dataFeaturesNames), "subject", "activity" )
+   all_data<-subset(all_data,select=selectedNames)
+    
 # Read descriptive activity names from “activity_labels.txt
-  Assigning  lables from activity labels.txt files
-  activityLabels <- read.table(file.path(file_rf, "activity_labels.txt"),header = FALSE)
   
+    Assigning  lables from activity labels.txt files
+    activityLabels <- read.table(file.path(file_rf, "activity_labels.txt"),header = FALSE)
+    
 # Appropriately labels the data set with descriptive variable names
- As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels     are assinged to it.
-   Body = related to body movement.
-   Gravity = acceleration of gravity
-   Acc = accelerometer measurement
-   Gyro = gyroscopic measurements
-   Jerk = sudden movement acceleration
-   Mag = magnitude of movement
-
-    names(all_data)<-gsub("^t", "time", names(all_data))
-    names(all_data)<-gsub("^f", "frequency", names(all_data))
-    names(all_data)<-gsub("Acc", "Accelerometer", names(all_data))
-    names(all_data)<-gsub("Gyro", "Gyroscope", names(all_data))
-    names(all_data)<-gsub("Mag", "Magnitude", names(all_data))
-    names(all_data)<-gsub("BodyBody", "Body", names(all_data))
  
-After converting variable code names to Variable descriptive names we could identify following changes. 
- 
- # Before
-   tBodyAcc-mean()-X          
-   tBodyAcc-mean()-Y          
-   tBodyAcc-mean()-Z          
-   tBodyAcc-std()-X           
-   tBodyAcc-std()-Y           
-   tBodyAcc-std()-Z           
-   tGravityAcc-mean()-X       
-   tGravityAcc-mean()-Y       
-   tGravityAcc-mean()-Z       
-   tGravityAcc-std()-X        
-   tGravityAcc-std()-Y        
-   tGravityAcc-std()-Z        
-   tBodyAccJerk-mean()-X      
-   tBodyAccJerk-mean()-Y      
-   tBodyAccJerk-mean()-Z      
-   tBodyAccJerk-std()-X       
-   tBodyAccJerk-std()-Y       
-   tBodyAccJerk-std()-Z       
-   tBodyGyro-mean()-X         
-   tBodyGyro-mean()-Y         
-   tBodyGyro-mean()-Z         
-   tBodyGyro-std()-X          
-   tBodyGyro-std()-Y          
-   tBodyGyro-std()-Z          
-   tBodyGyroJerk-mean()-X     
-   tBodyGyroJerk-mean()-Y     
-   tBodyGyroJerk-mean()-Z     
-   tBodyGyroJerk-std()-X      
-   tBodyGyroJerk-std()-Y      
-   tBodyGyroJerk-std()-Z      
-   tBodyAccMag-mean()         
-   tBodyAccMag-std()          
-   tGravityAccMag-mean()      
-   tGravityAccMag-std()       
-   tBodyAccJerkMag-mean()     
-   tBodyAccJerkMag-std()      
-   tBodyGyroMag-mean()        
-   tBodyGyroMag-std()         
-   tBodyGyroJerkMag-mean()    
-   tBodyGyroJerkMag-std()     
-   fBodyAcc-mean()-X          
-   fBodyAcc-mean()-Y          
-   fBodyAcc-mean()-Z          
-   fBodyAcc-std()-X           
-   fBodyAcc-std()-Y           
-   fBodyAcc-std()-Z           
-   fBodyAccJerk-mean()-X      
-   fBodyAccJerk-mean()-Y      
-   fBodyAccJerk-mean()-Z      
-   fBodyAccJerk-std()-X       
-   fBodyAccJerk-std()-Y       
-   fBodyAccJerk-std()-Z       
-   fBodyGyro-mean()-X         
-   fBodyGyro-mean()-Y         
-   fBodyGyro-mean()-Z         
-   fBodyGyro-std()-X          
-   fBodyGyro-std()-Y          
-   fBodyGyro-std()-Z          
-   fBodyAccMag-mean()         
-   fBodyAccMag-std()          
-   fBodyBodyAccJerkMag-mean() 
-   fBodyBodyAccJerkMag-std()  
-   fBodyBodyGyroMag-mean()    
-   fBodyBodyGyroMag-std()     
-   fBodyBodyGyroJerkMag-mean()
-   fBodyBodyGyroJerkMag-std() 
-
-
-# After
-   timeBodyAccelerometer-MEAN()-X                
-   timeBodyAccelerometer-MEAN()-Y                
-   timeBodyAccelerometer-MEAN()-Z                
-   timeBodyAccelerometer-SD()-X                  
-   timeBodyAccelerometer-SD()-Y                  
-   timeBodyAccelerometer-SD()-Z                  
-   timeGravityAccelerometer-MEAN()-X             
-   timeGravityAccelerometer-MEAN()-Y             
-   timeGravityAccelerometer-MEAN()-Z             
-   timeGravityAccelerometer-SD()-X               
-   timeGravityAccelerometer-SD()-Y               
-   timeGravityAccelerometer-SD()-Z               
-   timeBodyAccelerometerJerk-MEAN()-X            
-   timeBodyAccelerometerJerk-MEAN()-Y            
-   timeBodyAccelerometerJerk-MEAN()-Z            
-   timeBodyAccelerometerJerk-SD()-X              
-   timeBodyAccelerometerJerk-SD()-Y              
-   timeBodyAccelerometerJerk-SD()-Z              
-   timeBodyGyroscope-MEAN()-X                    
-   timeBodyGyroscope-MEAN()-Y                    
-   timeBodyGyroscope-MEAN()-Z                    
-   timeBodyGyroscope-SD()-X                      
-   timeBodyGyroscope-SD()-Y                      
-   timeBodyGyroscope-SD()-Z                      
-   timeBodyGyroscopeJerk-MEAN()-X                
-   timeBodyGyroscopeJerk-MEAN()-Y                
-   timeBodyGyroscopeJerk-MEAN()-Z                
-   timeBodyGyroscopeJerk-SD()-X                  
-   timeBodyGyroscopeJerk-SD()-Y                  
-   timeBodyGyroscopeJerk-SD()-Z                  
-   timeBodyAccelerometerMagnitude-MEAN()         
-   timeBodyAccelerometerMagnitude-SD()           
-   timeGravityAccelerometerMagnitude-MEAN()      
-   timeGravityAccelerometerMagnitude-SD()        
-   timeBodyAccelerometerJerkMagnitude-MEAN()     
-   timeBodyAccelerometerJerkMagnitude-SD()       
-   timeBodyGyroscopeMagnitude-MEAN()             
-   timeBodyGyroscopeMagnitude-SD()               
-   timeBodyGyroscopeJerkMagnitude-MEAN()         
-   timeBodyGyroscopeJerkMagnitude-SD()           
-   frequencyBodyAccelerometer-MEAN()-X           
-   frequencyBodyAccelerometer-MEAN()-Y           
-   frequencyBodyAccelerometer-MEAN()-Z           
-   frequencyBodyAccelerometer-SD()-X             
-   frequencyBodyAccelerometer-SD()-Y             
-   frequencyBodyAccelerometer-SD()-Z             
-   frequencyBodyAccelerometerJerk-MEAN()-X       
-   frequencyBodyAccelerometerJerk-MEAN()-Y       
-   frequencyBodyAccelerometerJerk-MEAN()-Z       
-   frequencyBodyAccelerometerJerk-SD()-X         
-   frequencyBodyAccelerometerJerk-SD()-Y         
-   frequencyBodyAccelerometerJerk-SD()-Z         
-   frequencyBodyGyroscope-MEAN()-X               
-   frequencyBodyGyroscope-MEAN()-Y               
-   frequencyBodyGyroscope-MEAN()-Z               
-   frequencyBodyGyroscope-SD()-X                 
-   frequencyBodyGyroscope-SD()-Y                 
-   frequencyBodyGyroscope-SD()-Z                 
-   frequencyBodyAccelerometerMagnitude-MEAN()    
-   frequencyBodyAccelerometerMagnitude-SD()      
-   frequencyBodyAccelerometerJerkMagnitude-MEAN()
-   frequencyBodyAccelerometerJerkMagnitude-SD()  
-   frequencyBodyGyroscopeMagnitude-MEAN()        
-   frequencyBodyGyroscopeMagnitude-SD()          
-   frequencyBodyGyroscopeJerkMagnitude-MEAN()    
-   frequencyBodyGyroscopeJerkMagnitude-SD()      
+   As one of the important component of tidydata is to have descriptive variable name of a variable there for proper labels     are assinged to it.
+     Body = related to body movement.
+     Gravity = acceleration of gravity
+     Acc = accelerometer measurement
+     Gyro = gyroscopic measurements
+     Jerk = sudden movement acceleration
+     Mag = magnitude of movement
+  
+      names(all_data)<-gsub("^t", "time", names(all_data))
+      names(all_data)<-gsub("^f", "frequency", names(all_data))
+      names(all_data)<-gsub("Acc", "Accelerometer", names(all_data))
+      names(all_data)<-gsub("Gyro", "Gyroscope", names(all_data))
+      names(all_data)<-gsub("Mag", "Magnitude", names(all_data))
+      names(all_data)<-gsub("BodyBody", "Body", names(all_data))
+   
+  After converting variable code names to Variable descriptive names we could identify following changes. 
+   
+   # Before
+     tBodyAcc-mean()-X          
+     tBodyAcc-mean()-Y          
+     tBodyAcc-mean()-Z          
+     tBodyAcc-std()-X           
+     tBodyAcc-std()-Y           
+     tBodyAcc-std()-Z           
+     tGravityAcc-mean()-X       
+     tGravityAcc-mean()-Y       
+     tGravityAcc-mean()-Z       
+     tGravityAcc-std()-X        
+     tGravityAcc-std()-Y        
+     tGravityAcc-std()-Z        
+     tBodyAccJerk-mean()-X      
+     tBodyAccJerk-mean()-Y      
+     tBodyAccJerk-mean()-Z      
+     tBodyAccJerk-std()-X       
+     tBodyAccJerk-std()-Y       
+     tBodyAccJerk-std()-Z       
+     tBodyGyro-mean()-X         
+     tBodyGyro-mean()-Y         
+     tBodyGyro-mean()-Z         
+     tBodyGyro-std()-X          
+     tBodyGyro-std()-Y          
+     tBodyGyro-std()-Z          
+     tBodyGyroJerk-mean()-X     
+     tBodyGyroJerk-mean()-Y     
+     tBodyGyroJerk-mean()-Z     
+     tBodyGyroJerk-std()-X      
+     tBodyGyroJerk-std()-Y      
+     tBodyGyroJerk-std()-Z      
+     tBodyAccMag-mean()         
+     tBodyAccMag-std()          
+     tGravityAccMag-mean()      
+     tGravityAccMag-std()       
+     tBodyAccJerkMag-mean()     
+     tBodyAccJerkMag-std()      
+     tBodyGyroMag-mean()        
+     tBodyGyroMag-std()         
+     tBodyGyroJerkMag-mean()    
+     tBodyGyroJerkMag-std()     
+     fBodyAcc-mean()-X          
+     fBodyAcc-mean()-Y          
+     fBodyAcc-mean()-Z          
+     fBodyAcc-std()-X           
+     fBodyAcc-std()-Y           
+     fBodyAcc-std()-Z           
+     fBodyAccJerk-mean()-X      
+     fBodyAccJerk-mean()-Y      
+     fBodyAccJerk-mean()-Z      
+     fBodyAccJerk-std()-X       
+     fBodyAccJerk-std()-Y       
+     fBodyAccJerk-std()-Z       
+     fBodyGyro-mean()-X         
+     fBodyGyro-mean()-Y         
+     fBodyGyro-mean()-Z         
+     fBodyGyro-std()-X          
+     fBodyGyro-std()-Y          
+     fBodyGyro-std()-Z          
+     fBodyAccMag-mean()         
+     fBodyAccMag-std()          
+     fBodyBodyAccJerkMag-mean() 
+     fBodyBodyAccJerkMag-std()  
+     fBodyBodyGyroMag-mean()    
+     fBodyBodyGyroMag-std()     
+     fBodyBodyGyroJerkMag-mean()
+     fBodyBodyGyroJerkMag-std() 
+  
+  
+  # After
+     timeBodyAccelerometer-MEAN()-X                
+     timeBodyAccelerometer-MEAN()-Y                
+     timeBodyAccelerometer-MEAN()-Z                
+     timeBodyAccelerometer-SD()-X                  
+     timeBodyAccelerometer-SD()-Y                  
+     timeBodyAccelerometer-SD()-Z                  
+     timeGravityAccelerometer-MEAN()-X             
+     timeGravityAccelerometer-MEAN()-Y             
+     timeGravityAccelerometer-MEAN()-Z             
+     timeGravityAccelerometer-SD()-X               
+     timeGravityAccelerometer-SD()-Y               
+     timeGravityAccelerometer-SD()-Z               
+     timeBodyAccelerometerJerk-MEAN()-X            
+     timeBodyAccelerometerJerk-MEAN()-Y            
+     timeBodyAccelerometerJerk-MEAN()-Z            
+     timeBodyAccelerometerJerk-SD()-X              
+     timeBodyAccelerometerJerk-SD()-Y              
+     timeBodyAccelerometerJerk-SD()-Z              
+     timeBodyGyroscope-MEAN()-X                    
+     timeBodyGyroscope-MEAN()-Y                    
+     timeBodyGyroscope-MEAN()-Z                    
+     timeBodyGyroscope-SD()-X                      
+     timeBodyGyroscope-SD()-Y                      
+     timeBodyGyroscope-SD()-Z                      
+     timeBodyGyroscopeJerk-MEAN()-X                
+     timeBodyGyroscopeJerk-MEAN()-Y                
+     timeBodyGyroscopeJerk-MEAN()-Z                
+     timeBodyGyroscopeJerk-SD()-X                  
+     timeBodyGyroscopeJerk-SD()-Y                  
+     timeBodyGyroscopeJerk-SD()-Z                  
+     timeBodyAccelerometerMagnitude-MEAN()         
+     timeBodyAccelerometerMagnitude-SD()           
+     timeGravityAccelerometerMagnitude-MEAN()      
+     timeGravityAccelerometerMagnitude-SD()        
+     timeBodyAccelerometerJerkMagnitude-MEAN()     
+     timeBodyAccelerometerJerkMagnitude-SD()       
+     timeBodyGyroscopeMagnitude-MEAN()             
+     timeBodyGyroscopeMagnitude-SD()               
+     timeBodyGyroscopeJerkMagnitude-MEAN()         
+     timeBodyGyroscopeJerkMagnitude-SD()           
+     frequencyBodyAccelerometer-MEAN()-X           
+     frequencyBodyAccelerometer-MEAN()-Y           
+     frequencyBodyAccelerometer-MEAN()-Z           
+     frequencyBodyAccelerometer-SD()-X             
+     frequencyBodyAccelerometer-SD()-Y             
+     frequencyBodyAccelerometer-SD()-Z             
+     frequencyBodyAccelerometerJerk-MEAN()-X       
+     frequencyBodyAccelerometerJerk-MEAN()-Y       
+     frequencyBodyAccelerometerJerk-MEAN()-Z       
+     frequencyBodyAccelerometerJerk-SD()-X         
+     frequencyBodyAccelerometerJerk-SD()-Y         
+     frequencyBodyAccelerometerJerk-SD()-Z         
+     frequencyBodyGyroscope-MEAN()-X               
+     frequencyBodyGyroscope-MEAN()-Y               
+     frequencyBodyGyroscope-MEAN()-Z               
+     frequencyBodyGyroscope-SD()-X                 
+     frequencyBodyGyroscope-SD()-Y                 
+     frequencyBodyGyroscope-SD()-Z                 
+     frequencyBodyAccelerometerMagnitude-MEAN()    
+     frequencyBodyAccelerometerMagnitude-SD()      
+     frequencyBodyAccelerometerJerkMagnitude-MEAN()
+     frequencyBodyAccelerometerJerkMagnitude-SD()  
+     frequencyBodyGyroscopeMagnitude-MEAN()        
+     frequencyBodyGyroscopeMagnitude-SD()          
+     frequencyBodyGyroscopeJerkMagnitude-MEAN()    
+     frequencyBodyGyroscopeJerkMagnitude-SD()      
 
 # In this part,a second, independent tidy data set will be created with the average of each variable for each activity and each subject
  
-Data2<-aggregate(. ~subject + activity, all_data, mean)
-Data2<-Data2[order(Data2$subject,Data2$activity),]
-write.table(Data2, file = "tidydata.txt",row.name=FALSE)
+  Data2<-aggregate(. ~subject + activity, all_data, mean)
+  Data2<-Data2[order(Data2$subject,Data2$activity),]
+  write.table(Data2, file = "tidydata.txt",row.name=FALSE)
 
