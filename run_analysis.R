@@ -1,16 +1,18 @@
   
-  #Get the Data in R
-  #Step 1: download the file and store in directory
+  # Setup working directory
+
+    setwd("D:/R Folder/data")
   
-  setwd("D:/R Folder/data")
-  temp <- "D:/R Folder/data/data_set.zip"
-  download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",temp)
+  #Download the file and store in directory
   
+    temp <- "D:/R Folder/data/data_set.zip"
+    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",temp)
+    
   #Unzip the file
   
     file_unzip<- unzip(temp)
   
-  # Getting list of unziped file from "UCHI HAR dataset"
+  # Get the Data in R : Getting list of unziped file from "UCHI HAR dataset"
   
     file_rf<- file.path("D:/R Folder/data","UCI HAR dataset")
     files<- list.files(file_rf,recursive = TRUE)
@@ -28,9 +30,9 @@
     
   # binding row by using rbind 
   
-    data_subject<- rbind(all_data_activity_train_subject,data_activity_test_subject)
-    data_activity<- rbind(all_data_activity_train_Y,data_activity_test_Y)
-    data_feature<- rbind(all_data_feature_train_X, data_feature_test_X)
+    data_subject<- rbind(data_activity_train_subject,data_activity_test_subject)
+    data_activity<- rbind(data_activity_train_Y,data_activity_test_Y)
+    data_feature<- rbind(data_feature_train_X, data_feature_test_X)
     
   #set_variable:
   
@@ -71,4 +73,4 @@
     Data2<-Data2[order(Data2$subject,Data2$activity),]
     write.table(Data2, file = "tidydata.txt",row.name=FALSE)
     
-    Read_tidy_data<- read.table("D:/R Folder/data/tidydata.txt",header = TRUE)
+    
