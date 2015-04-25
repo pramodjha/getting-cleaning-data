@@ -32,7 +32,9 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 # Get the Data in R : Getting list of unziped file from UCHI HAR dataset
  
    Checking list of files in UCHI HAR dataset folder
+   
          file_rf<- file.path("D:/R Folder/data","UCI HAR dataset")
+   
          files<- list.files(file_rf,recursive = TRUE)
          
 # Reading data from files into variable
@@ -71,9 +73,13 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 # Set_variable
 
   Setting header for variables by uisng "names" function
+   
    names(data_subject)<-c("subject")
+   
    names(data_activity)<-c("activity")
+   
    dataFeaturesNames <- read.table(file.path(file_rf, "features.txt"),head=FALSE)
+   
    names(data_feature)<- dataFeaturesNames$V2  
  
 # Combine Column by using cbind
