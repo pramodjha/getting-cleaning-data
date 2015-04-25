@@ -18,17 +18,5 @@ From the data set in step 4, creates a second, independent tidy data set with th
 Good luck!
 
 
-# Get the Data in R
-# download the file and store in directory
-# Unzip the file
-# Getting list of unziped file from "UCHI HAR dataset"
-# Reading data from files into variable
-# binding row by using rbind 
-# set_variable
-# Combine Column by using cbind
-# Subset Name of Features by measurements on the mean and standard deviation
-# Subset the data frame Data by seleted names of Features.
-# Read descriptive activity names from “activity_labels.txt
-# Appropriately labels the data set with descriptive variable names.
 
 	
